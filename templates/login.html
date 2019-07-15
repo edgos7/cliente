@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+  Login
+{% endblock %}
+
+{% block cuadro %}
+  col-sm-9 col-md-7 col-lg-5 mx-auto
+{% endblock %}
+{% block contenido %}
+  <h5 class="card-title text-center">Login</h5>
+  <form class="form-signin" action="" method="POST">
+    <div class="form-label-group">
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email">
+      <br>                  
+    </div>
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password">
+      <br>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+  </form>
+          
+{% endblock %}

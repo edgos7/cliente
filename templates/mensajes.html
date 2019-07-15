@@ -1,0 +1,39 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+	Programar Mensajes
+{% endblock %}
+
+{% block cuadro %}
+  col-md-11 mt-1 mx-auto
+{% endblock %}
+
+{% block contenido %}
+	<a class="btn btn-success" href="/adicionarContacto"> Adicionar Contacto</a>
+  <a class="btn btn-success" href="/iniciarEnvioMensajes"> Iniciar Envio Mensajes</a>
+  <br>
+  <br>
+  <table class="table table-striped">
+    
+    <tr>
+      <th>Telefono</th>
+      <th>Nombre</th>
+      <th></th>
+      <th></th>
+    </tr>
+    
+    {% for contacto in contactos %}
+      <tr>
+        <td>{{contacto.telefono}}</td>
+        <td>{{contacto.nombre}}</td>
+        <td><a href="/editarContacto/{{contacto.id}}" class="btn btn-success">Editar</a></td>
+        <td>
+          <form action="{{url_for('borrarContacto', id=contacto.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}

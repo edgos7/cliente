@@ -1,0 +1,24 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+  Editar Contacto
+{% endblock %}
+{% block cuadro %}
+  col-sm-9 col-md-7 col-lg-5 mx-auto
+{% endblock %}
+{% block contenido %}
+  <h5 class="card-title text-center">Editar Contacto</h5>
+  	{% from "formhelpers.html" import render_field %}
+  	<form method="POST" action="">
+      Nombre
+    	<div class="form-label-group">
+      		{{render_field(form.name, class_="form-control")}}
+    	</div>
+      <br> 
+      Telefono
+    	<div class="form-label-group">
+      		{{render_field(form.telefono, class_="form-control")}}
+    	</div>
+      <br> 
+    	<p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Modificar"></p>
+  </form>
+{% endblock %}

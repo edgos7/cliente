@@ -1,0 +1,22 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+  Adicionar Palabra a Buscar
+{% endblock %}
+{% block cuadro %}
+  col-sm-9 col-md-7 col-lg-5 mx-auto
+{% endblock %}
+{% block contenido %}
+  <h5 class="card-title text-center">Adicionar Palabra a Buscar</h5>
+  	{% from "formhelpers.html" import render_field %}
+  	<form method="POST" action="">
+    	<div class="form-label-group">
+      		{{render_field(form.palabra, class_="form-control", placeholder="Palabra")}}
+    	</div>
+      <br> 
+    	<div class="form-label-group">
+      		{{render_field(form.respuesta, class_="form-control", placeholder="Respuesta")}}
+    	</div>
+      <br> 
+    	<p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Adicionar"></p>
+  </form>
+{% endblock %}

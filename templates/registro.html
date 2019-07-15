@@ -1,0 +1,33 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+	Registro de Usuario
+{% endblock %}
+
+{% block cuadro %}
+  col-sm-9 col-md-7 col-lg-5 mx-auto
+{% endblock %}
+
+{% block contenido %}
+           
+  {% from "formhelpers.html" import render_field %}
+    <h5 class="card-title text-center">Registro</h5>
+    <form action="" method="POST">
+      <div class="form-label-group">
+        {{render_field(form.name, class="form-control", placeholder="Nombre")}}
+        <br>                  
+      </div>
+      <div class="form-label-group">
+        {{render_field(form.email, class_="form-control", placeholder="Email")}}
+        <br>
+      </div>
+      <div class="form-label-group">
+        {{render_field(form.password, class_="form-control" ,placeholder="Password")}}
+        <br>                  
+      </div>
+      <div class="form-label-group">
+        {{render_field(form.confirm, class_="form-control", placeholder="Confirmar Password")}}
+        <br>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+    </form>
+{% endblock %}

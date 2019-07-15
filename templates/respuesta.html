@@ -1,0 +1,43 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+	Respuesta Automatica
+{% endblock %}
+
+{% block cuadro %}
+  col-md-11 mt-1 mx-auto
+{% endblock %}
+
+{% block contenido %}
+	<a class="btn btn-success" href="/adicionarPalabra"> Adicionar Palabra Buscada</a>
+  {% if iniciado == False %}
+    <a class="btn btn-success" href="/iniciarRespuesta"> Iniciar Respuesta</a>
+  {% endif %}
+  {% if iniciado == True %}
+    <a class="btn btn-success" href="/terminarRespuesta"> Terminar Respuesta</a>
+  {% endif %}
+  <br>
+  <br>
+  <table class="table table-striped">
+  
+    <tr>
+      <th>Palabra Buscada</th>
+      <th>Respuesta</th>
+      <th></th>
+      <th></th>
+    </tr>
+    
+    {% for palabra in palabras %}
+      <tr>
+        <td>{{palabra.palabra}}</td>
+        <td>{{palabra.respuesta}}</td>
+        <td><a href="/editarPalabra/{{palabra.id}}" class="btn btn-success">Editar</a></td>
+        <td>
+          <form action="{{url_for('borrarPalabra', id=palabra.id)}}" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

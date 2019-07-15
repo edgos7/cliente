@@ -1,0 +1,22 @@
+{% extends 'plantilla.html' %}
+{% block titulo %}
+  Adicionar Contacto
+{% endblock %}
+{% block cuadro %}
+  col-sm-9 col-md-7 col-lg-5 mx-auto
+{% endblock %}
+{% block contenido %}
+  <h5 class="card-title text-center">Adicionar Contacto</h5>
+  	{% from "formhelpers.html" import render_field %}
+  	<form method="POST" action="">
+    	<div class="form-label-group">
+      		{{render_field(form.name, class_="form-control", placeholder="Nombre")}}
+    	</div>
+      <br>
+    	<div class="form-label-group">
+      		{{render_field(form.telefono, class_="form-control", placeholder="Telefono")}}
+    	</div>
+      <br>
+    	<p><input type="submit" class="btn btn-lg btn-primary btn-block" value="Adicionar"></p>
+  </form>
+{% endblock %}
