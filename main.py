@@ -26,6 +26,12 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 
+
+@app.errorhandler(404)
+def noEncontrada(error):
+    error = 'Pagina No Encontrada'
+    return render_template('index.html', error=error)
+
 @app.route('/')
 def index():
 	return render_template('index.html')
